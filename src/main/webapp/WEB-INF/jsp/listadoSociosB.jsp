@@ -21,7 +21,7 @@
 <div class="container bg-white sticky-top">
     <div class="row mb-2 border-bottom">
         <div class="col-md-8 h1">Listado de Socios</div>
-        <div class="col-md-4 align-self-center" ><form method="post" action="GrabarSociosServlet">
+        <div class="col-md-4 align-self-center" ><form method="get" action="GrabarSociosServlet">
             <input class="btn btn-primary"  type="submit" value="Crear Socio">
         </form></div>
     </div>
@@ -59,7 +59,7 @@
                 <input type="hidden" name="codigo" value="<%=socio.getSocioId() %>"/>
                 <input class="btn btn-primary"  type="submit" value="Borrar">
             </form>
-            <form class="d-inline" method="post" action="EditarSociosSevlet">
+            <form class="d-inline" method="get" action="EditarSociosSevlet">
                 <input type="hidden" name="codigo" value="<%=socio.getSocioId() %>"/>
                 <input class="btn btn-primary"  type="submit" value="Editar">
             </form>
