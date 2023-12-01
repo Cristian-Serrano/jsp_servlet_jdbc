@@ -11,65 +11,35 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-//PLANTILLA DE CÓDIGO PARA SERVLETs EN INTELLIJ
-//https://www.jetbrains.com/help/idea/creating-and-configuring-web-application-elements.html
+@WebServlet(name = "EditarSociosServlet", value = "/EditarSociosServlet")
+public class EditarSociosServlet extends HttpServlet{
 
-//1A APROX. PATRÓN MVC -> M(dao, model y bbdd), V(jsp) & C(servlet)
-
-//                      v--NOMBRE DEL SERVLET           v--RUTAS QUE ATIENDE, PUEDE SER UN ARRAY {"/GrabarSociosServlet", "/grabar-socio"}
-@WebServlet(name = "GrabarSociosServlet", value = "/GrabarSociosServlet")
-public class GrabarSociosServlet extends HttpServlet {
-
-    //EL SERVLET TIENE INSTANCIADO EL DAO PARA ACCESO A BBDD A LA TABLA SOCIO
-    //                                  |
-    //                                  V
     private SocioDAO socioDAO = new SocioDAOImpl();
 
-    //HTML5 SÓLO SOPORTA GET Y POST
-    //FRENTE A API REST UTLIZANDO CÓDIGO DE CLIENTE JS HTTP: GET, POST, PUT, DELETE, PATCH
-
-    //MÉTODO PARA RUTAS GET /GrabarSociosServlet
-    //PARA LA RUTA /GrabarSociosServlet VA A MOSTRAR LA JSP DE formularioSocio.jsp
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //SE TRATA DE UNA REDIRECCIÓN INTERNA EN EL SERVIDOR
-        //FIJÉMONOS QUE LA RUTA DE LA JSP HA CAMBIADO A DENTRO DE /WEB-INF/
-        //POR LO TANTO NO ES ACCESIBLE DIRECTAMENTE, SÓLO A TRAVÉS DE SERVLET
-        //MEDIANTE UN RequestDispatcher ----------------v
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioSocioB.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioSocioEditar.jsp");
+        int codigo = Integer.parseInt(request.getParameter("codigo"));
 
-        //SIEMPRE QUE HACEMOS UN RequestDispatcher DEBE MATERIALIZARSE EN UN forward
-        //             --------------------------------------------------------|
-        //            V      v---------v-----SE LE PASAN LOS OBJETOS request Y response PARA HACER EFECTIVA
-        dispatcher.forward(request, response); // LA REDIRECCIÓN INTERNA EN EL SERVIDOR A UNA JSP O VISTA.
 
+        dispatcher.forward(request, response);
     }
 
-
-    //MÉTODO PARA RUTAS POST /GrabarSociosServlet
-    //PARA LA RUTA POST /GrabarSociosServlet HAY 2 OPCIONES DE REDIRECCIÓN INTERNA A JSP
-    //1a CASO DE QUE SE VALIDE CORRECTAMENTE --> pideNumeroSocio.jsp
-    //2o CASO DE QUE NO SE VALIDE CORRECTAMENTE --> formularioSocio.jsp CON INFORME DE ERROR
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         RequestDispatcher dispatcher = null;
 
-        //CÓDIGO DE VALIDACIÓN ENCAPSULADO EN UN MÉTODO DE UTILERÍA
-        // SI OK ==> OPTIONAL CON SOCIO                 |
-        // SI FAIL ==> EMPTY OPTIONAL                   |
-        //                                              V
-        Optional<Socio> optionalSocio = UtilServlet.validaGrabar(request);
+        Optional<Socio> optionalSocio = UtilServlet.validaEditar(request);
 
-        //SI OPTIONAL CON SOCIO PRESENTE <--> VALIDA OK
         if (optionalSocio.isPresent()) {
 
             //ACCEDO AL VALOR DE OPTIONAL DE SOCIO
             Socio socio = optionalSocio.get();
 
             //PERSITO EL SOCIO NUEVO EN BBDD
-            this.socioDAO.create(socio);
+            this.socioDAO.update(socio);
 
             //CARGO TODO EL LISTADO DE SOCIOS DE BBDD CON EL NUEVO
             List<Socio> listado = this.socioDAO.getAll();
@@ -100,7 +70,7 @@ public class GrabarSociosServlet extends HttpServlet {
             request.setAttribute("error", "Error de validación!");
 
             //POR ÚLTIMO, REDIRECCIÓN INTERNA PARA LA URL /GrabarSocioServlet A formularioSocio.jsp
-            //                                                                       |
+            //                                                                      |
             //                                                                      V
             dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/formularioSocioB.jsp");
         }
