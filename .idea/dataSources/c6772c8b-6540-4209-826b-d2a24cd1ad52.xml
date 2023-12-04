@@ -1065,79 +1065,139 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <CollationName>utf8mb3_bin</CollationName>
     </schema>
     <schema id="289" parent="1" name="baloncesto_servlet">
-      <IntrospectionTimestamp>2023-12-01.10:43:17</IntrospectionTimestamp>
-      <LocalIntrospectionTimestamp>2023-12-01.09:43:17</LocalIntrospectionTimestamp>
+      <IntrospectionTimestamp>2023-12-04.13:54:57</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-12-04.12:54:57</LocalIntrospectionTimestamp>
       <CollationName>utf8mb3_bin</CollationName>
     </schema>
     <schema id="290" parent="1" name="information_schema">
       <CollationName>utf8mb3_general_ci</CollationName>
     </schema>
-    <schema id="291" parent="1" name="mysql">
+    <schema id="291" parent="1" name="jardineria">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="292" parent="1" name="performance_schema">
+    <schema id="292" parent="1" name="juego">
+      <IntrospectionTimestamp>2023-12-04.13:54:57</IntrospectionTimestamp>
+      <LocalIntrospectionTimestamp>2023-12-04.12:54:57</LocalIntrospectionTimestamp>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="293" parent="1" name="sys">
+    <schema id="293" parent="1" name="mysql">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <schema id="294" parent="1" name="tienda">
+    <schema id="294" parent="1" name="performance_schema">
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </schema>
-    <user id="295" parent="1" name="mysql.infoschema">
+    <schema id="295" parent="1" name="sys">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <schema id="296" parent="1" name="tienda">
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </schema>
+    <user id="297" parent="1" name="mysql.infoschema">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="296" parent="1" name="mysql.session">
+    <user id="298" parent="1" name="mysql.session">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="297" parent="1" name="mysql.sys">
+    <user id="299" parent="1" name="mysql.sys">
       <CanLogin>0</CanLogin>
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="298" parent="1" name="root">
+    <user id="300" parent="1" name="root">
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <user id="299" parent="1" name="root">
+    <user id="301" parent="1" name="root">
       <Host>localhost</Host>
       <Plugin>caching_sha2_password</Plugin>
     </user>
-    <table id="300" parent="289" name="socio">
+    <table id="302" parent="289" name="socio">
       <Engine>InnoDB</Engine>
       <CollationName>utf8mb3_spanish2_ci</CollationName>
     </table>
-    <column id="301" parent="300" name="socioID">
-      <AutoIncrement>1303</AutoIncrement>
+    <table id="303" parent="292" name="partido">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="304" parent="302" name="socioID">
+      <AutoIncrement>1306</AutoIncrement>
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="302" parent="300" name="nombre">
+    <column id="305" parent="302" name="nombre">
       <DasType>varchar(40)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="303" parent="300" name="estatura">
+    <column id="306" parent="302" name="estatura">
       <DasType>int|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="304" parent="300" name="edad">
+    <column id="307" parent="302" name="edad">
       <DasType>int|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="305" parent="300" name="localidad">
+    <column id="308" parent="302" name="localidad">
       <DasType>varchar(30)|0s</DasType>
       <Position>5</Position>
     </column>
-    <index id="306" parent="300" name="PRIMARY">
+    <index id="309" parent="302" name="PRIMARY">
       <ColNames>socioID</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="307" parent="300" name="PRIMARY">
+    <key id="310" parent="302" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
+    <check id="311" parent="303" name="partido_chk_1">
+      <NameSurrogate>1</NameSurrogate>
+      <Predicate>(`tipo_partido` = _utf8mb4\&apos;amistoso\&apos;) or (`tipo_partido` = _utf8mb4\&apos;oficial\&apos;)</Predicate>
+    </check>
+    <column id="312" parent="303" name="id">
+      <AutoIncrement>2</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="313" parent="303" name="fecha">
+      <DasType>date|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>2</Position>
+    </column>
+    <column id="314" parent="303" name="equipo1">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>3</Position>
+    </column>
+    <column id="315" parent="303" name="puntos_equipo1">
+      <DasType>int|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <column id="316" parent="303" name="equipo2">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>5</Position>
+    </column>
+    <column id="317" parent="303" name="puntos_equipo2">
+      <DasType>int|0s</DasType>
+      <Position>6</Position>
+    </column>
+    <column id="318" parent="303" name="tipo_partido">
+      <DasType>varchar(50)|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>7</Position>
+    </column>
+    <index id="319" parent="303" name="PRIMARY">
+      <ColNames>id</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="320" parent="303" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
