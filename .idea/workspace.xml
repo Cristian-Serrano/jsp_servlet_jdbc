@@ -9,13 +9,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="739e422a-ce2f-4c56-a118-8ca65f865cf4" name="Changes" comment="haciendo el doPost">
+    <list default="true" id="739e422a-ce2f-4c56-a118-8ca65f865cf4" name="Changes" comment="hecho examen">
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/dao/PartidoDAO.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/dao/PartidoDAOImpl.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/model/Partido.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/servlet/GrabarPartidosServlet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/servlet/ListarPartidosServlet.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/org/iesvdm/jsp_servlet_jdbc/servlet/UtilServletPartido.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/formularioPartido.jsp" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/listadoPartidos.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/419eefb7-9108-47d7-b053-e5fc94b29170.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/419eefb7-9108-47d7-b053-e5fc94b29170.xml" afterDir="false" />
@@ -36,8 +37,8 @@
         <option value="Interface" />
         <option value="JavaScript File" />
         <option value="CSS File" />
-        <option value="Jsp File" />
         <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -203,7 +204,7 @@
       <workItem from="1701342206940" duration="2773000" />
       <workItem from="1701422436656" duration="7436000" />
       <workItem from="1701690459609" duration="149000" />
-      <workItem from="1701694037894" duration="3883000" />
+      <workItem from="1701694037894" duration="4232000" />
     </task>
     <task id="LOCAL-00001" summary="Commit inicial">
       <option name="closed" value="true" />
@@ -357,7 +358,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701431230421</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="hecho examen">
+      <option name="closed" value="true" />
+      <created>1701698269542</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1701698269542</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +391,8 @@
     <MESSAGE value="Más dinamismos jquery" />
     <MESSAGE value="GET" />
     <MESSAGE value="haciendo el doPost" />
-    <option name="LAST_COMMIT_MESSAGE" value="haciendo el doPost" />
+    <MESSAGE value="hecho examen" />
+    <option name="LAST_COMMIT_MESSAGE" value="hecho examen" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
